@@ -50,7 +50,7 @@
                   </li>
                   <li class="nav-item d-flex justify-content-center align-items-center">
                     <i class="fa-solid fa-download"></i>
-                    <a class="nav-link open-popup-trigger" style="cursor: pointer;"   id="openPopupBtn">Download Brochure</a>
+                    <a class="nav-link open-popup-trigger" data-content="newFormContent" style="cursor: pointer;"   id="openPopupBtn">Download Brochure</a>
                   </li>
                  
                 
@@ -112,14 +112,14 @@
                                 <td class="border border-left-0 border-top-0 border-bottom-0 price-type">4 BHK </td>
                                 <td class="border border-left-0 border-top-0 border-bottom-0 price-carpet">3577  Sq.ft.<small class="d-inline-block d-md-none">(Carpet Area)</small></td>
                                 <td class="price-amt"><i class="mi mi-rs-light"></i> 9 Cr*</td>
-                                <td><button  class="btn btn-sm btn-dark effetGradient effectScale enqModal open-popup-trigger" data-form="lg" data-title="Send me costing details" data-btn="Send Now" data-enquiry="Price Breakup" data-redirect="floorplan" data-toggle="modal" data-target="#enqModal">Price Breakup</button>
+                                <td><button  class="btn btn-sm btn-dark effetGradient effectScale enqModal open-popup-trigger" data-form="lg" data-title="Send me costing details" data-btn="Send Now" data-enquiry="Price Breakup" data-redirect="floorplan" data-toggle="modal" data-target="#enqModal" data-content="newFormContent">Price Breakup</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="border border-left-0 border-top-0 border-bottom-0 price-type">5 BHK </td>
                                 <td class="border border-left-0 border-top-0 border-bottom-0 price-carpet">5500 Sq.ft.<small class="d-inline-block d-md-none">(Carpet Area)</small></td>
                                 <td class="price-amt"><i class="mi mi-rs-light"></i> On Request</td>
-                                <td><button  class="btn btn-sm btn-dark effetGradient effectScale enqModal open-popup-trigger" data-form="lg" data-title="Send me costing details" data-btn="Send Now" data-enquiry="Price Breakup" data-redirect="floorplan" data-toggle="modal" data-target="#enqModal">Price Breakup</button></td>
+                                <td><button  class="btn btn-sm btn-dark effetGradient effectScale enqModal open-popup-trigger" data-form="lg" data-title="Send me costing details" data-btn="Send Now" data-enquiry="Price Breakup" data-redirect="floorplan" data-toggle="modal" data-target="#enqModal" data-content="newFormContent">Price Breakup</button></td>
                             </tr>
                            
 
@@ -131,10 +131,10 @@
                         <div class="at-property-item shadow-sm border border-grey mt-1 d-flex justify-content-center align-items-center flex-column">
                             <div class="at-property-img lazyloaded mb-2" data-expand="-1"><img alt="costing sheet" data-sizes="auto" class="w-100 lazyautosizes ls-is-cached lazyloaded ls-inview" sizes="294px" src="./assets/costing.jpg">
                                   </div>
-                            <button class="btn btn-sm btn-dark effetGradient effectScale enqModal mb-2" data-form="lg" data-title="Send me costing details" data-btn="Send Now" data-enquiry="Price Breakup" data-redirect="floorplan" data-toggle="modal" data-target="#enqModal ">Complete Costing Details</button>
+                            <button class="btn btn-sm btn-dark effetGradient effectScale enqModal mb-2" data-form="lg" data-title="Send me costing details" data-btn="Send Now" data-enquiry="Price Breakup" data-redirect="floorplan" data-toggle="modal" data-target="#enqModal" data-content="newFormContent">Complete Costing Details</button>
                         </div>
 
-                        <span id="openPopupBtn"><b class="inner-button open-popup-trigger" >ENQUIRE NOW</b></span>
+                        <span id="openPopupBtn"><b class="inner-button open-popup-trigger" data-content="newFormContent" >ENQUIRE NOW</b></span>
                        
                         
                     </a>
@@ -156,7 +156,7 @@
                             
                         </div>
                     </div>
-                    <span id="openPopupBtn"><b class="inner-button open-popup-trigger" >ENQUIRE NOW</b></span>
+                    <span id="openPopupBtn"><b class="inner-button open-popup-trigger"data-content="newFormContent" >ENQUIRE NOW</b></span>
                 </a>
             </div>
             <span class="d-block section-heading-sub text-capitalize mt-2 " style="font-weight: 600;">Floor Plan</span>
@@ -170,7 +170,7 @@
                                
                             <div class="text-center" style="background-color: black; color: white; width: 100%;">4 BHK-3577 Sq.ft.</div>
                         </div>
-                        <span id="openPopupBtn"><b class="inner-button open-popup-trigger" >ENQUIRE NOW</b></span>
+                        <span id="openPopupBtn"><b class="inner-button open-popup-trigger" data-content="newFormContent">ENQUIRE NOW</b></span>
                     </a>
                 </div>
                 <div class="col-md-6">
@@ -182,7 +182,7 @@
                             <div class="at-property-dis effetGradient" style="background-color: black;color: white; width: 100%;">5 BHK-5500  Sq.ft.</div>
                         </div>
 
-                        <span id="openPopupBtn"><b class="inner-button open-popup-trigger" >ENQUIRE NOW</b></span>
+                        <span id="openPopupBtn"><b class="inner-button open-popup-trigger" data-content="newFormContent">ENQUIRE NOW</b></span>
                     </a>
                 </div>
               
@@ -325,52 +325,50 @@
         <section id="address_section" class="section overview-section mt-2 mb-2">
           <span class="section-link" id="location"></span> 
           <h2 class="head text-capitalize">Address of DLF Privana North </h2> 
-          <div class="row mb-3" style="width: 100%;"> 
-              <div class="col-md-7 col-sm-12 map-view"> 
+          <div class="row mb-3 d-flex "> 
+              <div class="col-md-6  map-view"> 
                   <span class="d-block section-heading-sub text-capitalize">Map View</span> 
                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60404.99736024399!2d76.982317!3d28.38249!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d232ee0ed91fd%3A0x19601a6e5b8f4105!2sSector%2077%2C%20Gurugram%2C%20Haryana%20122004!5e1!3m2!1sen!2sin!4v1732020947033!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
              
           </div>
-          <div  class="col-md-5 mt-4 pb-2 new-form" style=" border: 1px solid black;">
-          <div class="row">
-            <div class=" col-md-6 left-div" style="background-color: #efeded;">
-              <h4>We Promise</h4>
-              <div>
-                <img src="./assets/online.png" alt="">
-                <p>Instant Callback</p>
-              </div>
-              <div>
-                <img src="./assets/map.png" alt="">
-                <p>Free Site Visit</p>
-              </div>
-              <div>
-                <img src="/assets/hand.png" alt="">
-                <p>Unmatched Price</p>
-              </div>
+        <!-- Static New Form (Used Normally on the Page) -->
+        <div class=" mt-4 new-form static-form" id="formContainer">
+            <div class="row">
+                <div class="d-flex d-none d-md-flex col-md-6 left-div-new" style="background-color: #efeded;">
+                    <h4>We Promise</h4>
+                    <div>
+                        <img src="./assets/online.png" alt="">
+                        <p>Instant Callback</p>
+                    </div>
+                    <div>
+                        <img src="./assets/map.png" alt="">
+                        <p>Free Site Visit</p>
+                    </div>
+                    <div>
+                        <img src="./assets/hand.png" alt="">
+                        <p>Unmatched Price</p>
+                    </div>
+                </div>
+                <div class="col-md-6 right-div">
+                    <img src="./assets/auth.png" alt="" width="90%" class="pb-3">
+                    <p class="text-center">Register here and Avail the <b style="color: red;">Best Offers!!</b></p>
+                    <form id="newForm">
+                        <div class="mb-1">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="number" class="form-label">Contact Number</label>
+                            <input type="number" class="form-control" id="number" required>
+                            <div id="emailHelp" class="form-text">We'll never share your number with anyone else.</div>
+                        </div>
+                        <button type="submit" class="btn btn-dark" style="width: 100%;">Submit</button>
+                    </form>
+                </div>
             </div>
-            <div class="col-md-6 right-div">
-            <img src="./assets/auth.png" alt="" width="90%" class="pb-3">
-            <p class="text-center">Register here and Avail the <b style="color: red;">Best Offers!!</b></p> 
-            <form>
-              <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-              </div>
-            
-              <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">Contact Number</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your Number with anyone else.</div>
-              </div>
-             
-              
-              <button type="submit" class="btn btn-dark" style="width: 100%;" >Submit</button>
-            </form> 
-            </div>
-          </div>
-          </div> 
-          <p></p> 
+        </div>
+                 
+           
           
       </div> </section>
 
@@ -384,18 +382,14 @@
   
 
   <!-- Popup Form -->
-<div id="popupOverlay" class="popup-overlay">
-    <div class="popup-form">
-        <span id="closePopupBtn" class="close-btn">&times;</span>
-        <h2 id="popupTitle">Enter Your Details</h2>
-        <form id="popupForm">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="number" id="number" placeholder="Phone Number" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <button type="submit" id="popupSubmitBtn">Submit</button>
-        </form>
+  <div id="popupOverlay" class="popup-overlay" style="display: none;">
+    <div class="popup-form ">
+      <span id="closePopupBtn" class="close-btn">&times;</span>
+      <div id="popupContent">
+        <!-- The dynamic content will be inserted here -->
+      </div>
     </div>
-</div>
+  </div>
    <!-- ------------------ -->
 
    
@@ -407,6 +401,10 @@
 
 
 <!-- Popup Form -->
+
+
+
+  
 
    <!-- --------------- -->
     

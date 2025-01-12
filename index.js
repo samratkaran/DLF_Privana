@@ -1,56 +1,66 @@
-const popupOverlay = document.getElementById('popupOverlay');
-const closePopupBtn = document.getElementById('closePopupBtn');
-const popupForm = document.getElementById('popupForm');
+// Get the popup elements
+console.log('hello karan')
+const popupOverlay = document.getElementById("popupOverlay");
+const closePopupBtn = document.getElementById("closePopupBtn");
+const popupContent = document.getElementById("popupContent");
 
 // Function to show the popup
 function showPopup(event) {
-    const trigger = event.currentTarget; // The element that triggered the popup
-    const title = trigger.getAttribute('data-title');
-    const btnText = trigger.getAttribute('data-btn');
+  const trigger = event.currentTarget;
+  const contentId = trigger.getAttribute("data-content");
 
-    // Update popup content
-    document.getElementById('popupTitle').textContent = title || 'Enter Your Details';
-    document.getElementById('popupSubmitBtn').textContent = btnText || 'Submit';
+  if (contentId === "newFormContent") {
+    // Clone the static form and insert it into the popup
+    const staticForm = document.querySelector(".new-form.static-form").cloneNode(true);
+    staticForm.classList.remove("static-form");
+    popupContent.innerHTML = "";
+    popupContent.appendChild(staticForm);
 
-    // Show the popup
-    popupOverlay.style.display = 'block';
+    // Attach real-time event listener to form fields inside the popup
+    const popupForm = popupContent.querySelector("form");
+    if (popupForm) {
+      attachInputListeners(popupForm);
+    }
+
+    popupOverlay.style.display = "flex";
+  }
 }
 
 // Function to hide the popup
 function hidePopup() {
-    popupOverlay.style.display = 'none';
+  popupOverlay.style.display = "none";
 }
 
-// Attach event listeners to all triggers
-document.querySelectorAll('.open-popup-trigger').forEach(trigger => {
-    trigger.addEventListener('click', showPopup);
-});
-
 // Close popup on clicking the close button
-closePopupBtn.addEventListener('click', hidePopup);
+closePopupBtn.addEventListener("click", hidePopup);
 
 // Close popup when clicking outside the popup content
-popupOverlay.addEventListener('click', (event) => {
-    if (event.target === popupOverlay) hidePopup();
+popupOverlay.addEventListener("click", (event) => {
+  if (event.target === popupOverlay) hidePopup();
 });
 
-// Handle form submission
-popupForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+// Function to handle real-time input capture and logging
+function attachInputListeners(form) {
+  // Get all input fields in the form
+  const inputs = form.querySelectorAll("input");
 
-    // Capture form values
-    const name = document.getElementById('name').value;
-    const number = document.getElementById('number').value;
-    const email = document.getElementById('email').value;
+  inputs.forEach(input => {
+    input.addEventListener("input", (e) => {
+      // Log the value of the input field in real-time
+      console.log("Real-time Input Value for", e.target.id, ":", e.target.value);
+    });
+  });
+}
 
-    console.log('Form Submitted:', { name, number, email });
-
-    // Simulate sending data to backend
-    alert('Form Submitted Successfully!');
-
-    // Close the popup
-    hidePopup();
-
-    // Reset the form
-    popupForm.reset();
+// Attach event listener to the button for manually opening the popup
+document.querySelectorAll(".open-popup-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", showPopup);
 });
+
+// Automatically show the popup every 10 seconds
+setInterval(() => {
+  const button = document.querySelector(".open-popup-trigger");
+  if (button) {
+    showPopup({ currentTarget: button }); // Trigger popup programmatically
+  }
+}, 10000); // This will show the popup every 10 seconds
