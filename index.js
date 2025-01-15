@@ -1,5 +1,5 @@
 // Get the popup elements
-console.log('hello karan')
+// console.log('hello karan')
 const popupOverlay = document.getElementById("popupOverlay");
 const closePopupBtn = document.getElementById("closePopupBtn");
 const popupContent = document.getElementById("popupContent");
@@ -39,28 +39,82 @@ popupOverlay.addEventListener("click", (event) => {
   if (event.target === popupOverlay) hidePopup();
 });
 
-// Function to handle real-time input capture and logging
-function attachInputListeners(form) {
-  // Get all input fields in the form
-  const inputs = form.querySelectorAll("input");
-
-  inputs.forEach(input => {
-    input.addEventListener("input", (e) => {
-      // Log the value of the input field in real-time
-      console.log("Real-time Input Value for", e.target.id, ":", e.target.value);
-    });
-  });
-}
-
 // Attach event listener to the button for manually opening the popup
 document.querySelectorAll(".open-popup-trigger").forEach((trigger) => {
   trigger.addEventListener("click", showPopup);
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+  const staticForm = document.querySelector('#newForm');
+  if (staticForm) {
+    attachSubmitListener(staticForm);
+  }
+});
+
 // Automatically show the popup every 10 seconds
+
+// Function to handle real-time input capture and logging
+
+
+
 // setInterval(() => {
 //   const button = document.querySelector(".open-popup-trigger");
 //   if (button) {
 //     showPopup({ currentTarget: button }); // Trigger popup programmatically
 //   }
 // }, 10000); // This will show the popup every 10 seconds
+
+
+function attachSubmitListener(form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = form.querySelector('#name').value;
+    console.log(`this is my name ${name}`);
+    const number = form.querySelector('#number').value;
+
+    // Send data to backend
+    fetch('https://dlf-privana-backend.onrender.com/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, number }),
+    })
+      .then((response) => {
+        console.log('Response:', response); // Log the response object
+        if (!response.ok) throw new Error('Failed to send email');
+        return response.text();
+      })
+      .then((data) => {
+        console.log('Success:', data);
+        alert('Form submitted and email sent successfully!');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('Failed to send email. Please try again.');
+      });
+  });
+}
+
+
+// Attach submit listener in your popup logic
+function showPopup(event) {
+  const trigger = event.currentTarget;
+  const contentId = trigger.getAttribute("data-content");
+
+  if (contentId === "newFormContent") {
+    const staticForm = document.querySelector(".new-form.static-form").cloneNode(true);
+    staticForm.classList.remove("static-form");
+    popupContent.innerHTML = "";
+    popupContent.appendChild(staticForm);
+
+    // Attach submit listener
+    const popupForm = popupContent.querySelector("form");
+    if (popupForm) {
+      attachSubmitListener(popupForm);
+    }
+
+    popupOverlay.style.display = "flex";
+  }
+}
