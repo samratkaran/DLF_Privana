@@ -51,18 +51,20 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Automatically show the popup every 10 seconds
 
-// Function to handle real-time input capture and logging
 
 
 
 setInterval(() => {
   const button = document.querySelector(".open-popup-trigger");
   if (button) {
-    showPopup({ currentTarget: button }); // Trigger popup programmatically
+    showPopup({ currentTarget: button }); 
   }
-}, 7000); // This will show the popup every 10 seconds
+}, 7000);
+
+setInterval(()=>{
+  console.log('console ho gaya')
+},2000)
 
 
 function attachSubmitListener(form) {

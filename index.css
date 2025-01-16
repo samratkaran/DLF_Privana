@@ -32,6 +32,32 @@ body {
     gap: 2rem;
 
 }
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px;  /* Distance from the right */
+  z-index: 9999; /* Ensures it overlaps other elements */
+  width: 60px;  /* Width of the button */
+  height: 60px; /* Height of the button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #25d366; /* WhatsApp green color */
+  border-radius: 50%; /* Circular button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.whatsapp-button img {
+  width: 50%; /* Icon size relative to the button */
+  height: auto;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
 .navbar-nav{
   margin-left: 20px;
 }
