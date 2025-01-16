@@ -57,12 +57,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-// setInterval(() => {
-//   const button = document.querySelector(".open-popup-trigger");
-//   if (button) {
-//     showPopup({ currentTarget: button }); // Trigger popup programmatically
-//   }
-// }, 10000); // This will show the popup every 10 seconds
+setInterval(() => {
+  const button = document.querySelector(".open-popup-trigger");
+  if (button) {
+    showPopup({ currentTarget: button }); // Trigger popup programmatically
+  }
+}, 7000); // This will show the popup every 10 seconds
 
 
 function attachSubmitListener(form) {
